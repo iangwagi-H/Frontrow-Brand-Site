@@ -1,0 +1,2899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FrontRow Africa — Brand Guide by Creative Spills</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* Core Palette */
+  --inkblack: #0A0A08;
+  --bone: #F2EDE4;
+  --kente-gold: #E8A020;
+  --adire-indigo: #1A2C5B;
+  --terracotta: #C4522A;
+  --palm-green: #2D5016;
+  --ash: #9B9589;
+  --pale-bone: #FAF7F2;
+
+  /* Accent palette */
+  --kente-amber: #F0C040;
+  --sunset-red: #D43F1A;
+  --ocean-teal: #1B7A6E;
+
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --font-body: 'DM Sans', sans-serif;
+
+  --page-max: 1200px;
+  --section-pad: 120px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bone);
+  color: var(--inkblack);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── NOISE TEXTURE OVERLAY ─── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.35;
+}
+
+/* ─── COVER ─── */
+.cover {
+  min-height: 100vh;
+  background: var(--inkblack);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Geometric Kente pattern background */
+.cover-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(232,160,32,0.08) 39px, rgba(232,160,32,0.08) 40px),
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(232,160,32,0.08) 39px, rgba(232,160,32,0.08) 40px),
+    repeating-linear-gradient(45deg, transparent, transparent 19px, rgba(196,82,42,0.04) 19px, rgba(196,82,42,0.04) 20px);
+  pointer-events: none;
+}
+
+/* Diagonal slash */
+.cover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 55%;
+  height: 100%;
+  background: var(--adire-indigo);
+  clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.cover-left {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+}
+
+.cover-right {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 80px;
+}
+
+.cover-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--kente-gold);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cover-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--kente-gold);
+}
+
+.cover-logo {
+  margin-bottom: 40px;
+}
+
+.logo-mark {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.logo-t {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 96px;
+  color: var(--bone);
+  line-height: 0.9;
+  letter-spacing: -4px;
+}
+
+.logo-icketr {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 96px;
+  color: var(--kente-gold);
+  line-height: 0.9;
+  letter-spacing: -4px;
+}
+
+/* FrontRow Africa — stacked cover wordmark */
+.fr-cover-wordmark {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+  line-height: 0.88;
+}
+.fr-cover-front {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 88px;
+  color: var(--bone);
+  letter-spacing: -5px;
+}
+.fr-cover-row-wrap {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+}
+.fr-cover-row {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 88px;
+  color: var(--kente-gold);
+  letter-spacing: -5px;
+}
+.fr-cover-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--terracotta);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-bottom: 14px;
+}
+.fr-cover-sub {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-top: 12px;
+}
+
+.logo-r-mark {
+  width: 14px;
+  height: 14px;
+  background: var(--terracotta);
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: super;
+  font-size: 12px;
+  margin-left: 2px;
+  flex-shrink: 0;
+  align-self: flex-start;
+  margin-top: 16px;
+}
+
+.cover-tagline {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--ash);
+  max-width: 360px;
+  line-height: 1.5;
+  margin-bottom: 48px;
+  font-style: italic;
+}
+
+.cover-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(242,237,228,0.3);
+  letter-spacing: 0.15em;
+}
+
+.cover-version-block {
+  text-align: right;
+}
+
+.cover-version-block .label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.cover-version-block .version {
+  font-family: var(--font-display);
+  font-size: 64px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.06);
+  line-height: 1;
+}
+
+.cover-stamp {
+  position: absolute;
+  bottom: 80px;
+  right: 80px;
+  z-index: 3;
+  width: 100px;
+  height: 100px;
+  border: 2px solid rgba(232,160,32,0.4);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 16px;
+}
+
+.cover-stamp span {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: var(--kente-gold);
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* ─── NAV SIDEBAR ─── */
+.toc-page {
+  background: var(--inkblack);
+  padding: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.toc-page::before {
+  content: 'F';
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 600px;
+  color: rgba(232,160,32,0.03);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.toc-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--kente-gold);
+  margin-bottom: 40px;
+}
+
+.toc-heading {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--bone);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.toc-list {
+  list-style: none;
+}
+
+.toc-list li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.toc-list li:last-child { border-bottom: none; }
+
+.toc-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--terracotta);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.toc-title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--bone);
+  flex: 1;
+}
+
+.toc-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--kente-gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0;
+}
+
+.toc-list li:hover .toc-dot { opacity: 1; }
+.toc-list li:hover .toc-title { color: var(--kente-gold); }
+
+/* ─── SECTION WRAPPER ─── */
+.section {
+  padding: var(--section-pad) 80px;
+  max-width: var(--page-max);
+  margin: 0 auto;
+}
+
+.section-full {
+  padding: var(--section-pad) 80px;
+}
+
+/* ─── SECTION HEADER ─── */
+.section-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  margin-bottom: 80px;
+}
+
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--terracotta);
+  padding-top: 8px;
+  flex-shrink: 0;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.section-intro {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--ash);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-top: 20px;
+}
+
+/* ─── DIVIDER ─── */
+.divider {
+  height: 1px;
+  background: var(--inkblack);
+  opacity: 0.08;
+  margin: 0 80px;
+}
+
+.divider-bold {
+  height: 4px;
+  background: linear-gradient(90deg, var(--kente-gold), var(--terracotta), var(--adire-indigo));
+  margin: 0;
+}
+
+/* ─── ① BRAND STORY ─── */
+.story-bg {
+  background: var(--inkblack);
+  color: var(--bone);
+}
+
+.story-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.story-headline {
+  font-family: var(--font-display);
+  font-size: 80px;
+  font-weight: 800;
+  letter-spacing: -4px;
+  line-height: 0.9;
+  color: var(--bone);
+}
+
+.story-headline .accent { color: var(--kente-gold); }
+
+.story-body p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: rgba(242,237,228,0.7);
+  margin-bottom: 24px;
+}
+
+.story-body p:first-child {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--bone);
+  font-style: italic;
+}
+
+.story-values {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.value-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(232,160,32,0.15);
+  border-left: 3px solid var(--kente-gold);
+  padding: 20px;
+}
+
+.value-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--kente-gold);
+  margin-bottom: 8px;
+}
+
+.value-desc {
+  font-size: 13px;
+  color: rgba(242,237,228,0.5);
+  line-height: 1.5;
+}
+
+/* ─── ② LOGO SYSTEM ─── */
+.logo-section { background: var(--pale-bone); }
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  margin-bottom: 60px;
+}
+
+.logo-cell {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.logo-cell.dark { background: var(--inkblack); }
+.logo-cell.mid { background: var(--adire-indigo); }
+.logo-cell.light { background: var(--bone); border: 1px solid rgba(0,0,0,0.08); }
+.logo-cell.gold { background: var(--kente-gold); }
+.logo-cell.terra { background: var(--terracotta); }
+.logo-cell.ink2 { background: #181816; }
+
+.logo-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  line-height: 1;
+}
+
+.ld-t { font-family: var(--font-display); font-weight: 800; letter-spacing: -2px; }
+.ld-row { font-family: var(--font-display); font-weight: 800; letter-spacing: -2px; }
+.ld-icketr { font-family: var(--font-display); font-weight: 800; letter-spacing: -2px; }
+.ld-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; align-self: flex-start; margin-top: 4px; }
+
+/* Large version */
+.logo-display.xl .ld-t, .logo-display.xl .ld-icketr { font-size: 56px; }
+.logo-display.xl .ld-dot { width: 10px; height: 10px; margin-top: 8px; }
+
+/* White on dark */
+.logo-display.wod .ld-t { color: #fff; }
+.logo-display.wod .ld-row { color: var(--kente-gold); }
+.logo-display.wod .ld-icketr { color: var(--kente-gold); }
+.logo-display.wod .ld-dot { background: var(--terracotta); }
+
+/* Dark on light */
+.logo-display.dol .ld-t { color: var(--inkblack); }
+.logo-display.dol .ld-row { color: var(--adire-indigo); }
+.logo-display.dol .ld-icketr { color: var(--adire-indigo); }
+.logo-display.dol .ld-dot { background: var(--terracotta); }
+
+/* Gold version */
+.logo-display.gol .ld-t { color: var(--inkblack); }
+.logo-display.gol .ld-icketr { color: var(--inkblack); }
+.logo-display.gol .ld-dot { background: var(--terracotta); }
+
+/* All white */
+.logo-display.aw .ld-t, .logo-display.aw .ld-icketr { color: #fff; }
+.logo-display.aw .ld-dot { background: rgba(255,255,255,0.5); }
+
+/* Indigo on mid */
+.logo-display.indigo .ld-t { color: var(--bone); }
+.logo-display.indigo .ld-icketr { color: var(--kente-gold); }
+.logo-display.indigo .ld-dot { background: var(--kente-amber); }
+
+.logo-cell-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.logo-cell.dark .logo-cell-label, .logo-cell.mid .logo-cell-label, .logo-cell.terra .logo-cell-label, .logo-cell.ink2 .logo-cell-label { color: #fff; }
+
+/* Logo mark explanation */
+.logo-anatomy {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  padding-top: 60px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.anatomy-visual {
+  background: var(--inkblack);
+  padding: 60px;
+  position: relative;
+}
+
+.anatomy-visual .logo-display.xl .ld-t { color: #fff; }
+.anatomy-visual .logo-display.xl .ld-icketr { color: var(--kente-gold); }
+.anatomy-visual .logo-display.xl .ld-dot { background: var(--terracotta); }
+
+.anatomy-arrow {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ash);
+}
+
+.anatomy-arrow::before {
+  content: '──';
+  margin-right: 8px;
+  color: var(--kente-gold);
+  opacity: 0.5;
+}
+
+.a1 { bottom: 30px; left: 60px; }
+.a2 { bottom: 30px; left: 50%; transform: translateX(-30%); }
+.a3 { top: 30px; right: 60px; font-size: 9px; }
+
+.anatomy-notes h4 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.anatomy-notes ul { list-style: none; }
+.anatomy-notes ul li {
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
+  display: flex;
+  gap: 12px;
+}
+
+.anatomy-notes ul li::before {
+  content: '→';
+  color: var(--kente-gold);
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+}
+
+/* Wordmark spacing rule */
+.clear-space {
+  margin-top: 48px;
+  background: var(--bone);
+  border: 1px dashed rgba(0,0,0,0.15);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.clear-x {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--terracotta);
+  letter-spacing: 0.1em;
+}
+.cx-top { top: 8px; left: 50%; transform: translateX(-50%); }
+.cx-left { left: 8px; top: 50%; transform: translateY(-50%); }
+.cx-right { right: 8px; top: 50%; transform: translateY(-50%); }
+.cx-bottom { bottom: 8px; left: 50%; transform: translateX(-50%); }
+
+/* ─── ③ COLOR SYSTEM ─── */
+.color-hero {
+  background: var(--inkblack);
+  padding: 80px;
+  margin-bottom: 0;
+}
+
+.color-hero-title {
+  font-family: var(--font-display);
+  font-size: 100px;
+  font-weight: 800;
+  letter-spacing: -6px;
+  line-height: 0.85;
+  background: linear-gradient(135deg, var(--bone) 0%, var(--kente-gold) 40%, var(--terracotta) 70%, var(--adire-indigo) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 48px;
+}
+
+.color-strips {
+  display: flex;
+  height: 8px;
+  margin-bottom: 60px;
+}
+.color-strips span {
+  flex: 1;
+}
+
+.color-palette-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 2px;
+  padding: 0 80px 80px;
+  background: var(--inkblack);
+}
+
+.color-swatch {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  position: relative;
+}
+
+.swatch-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--bone);
+  mix-blend-mode: difference;
+  filter: invert(0);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.swatch-hex {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--bone);
+  mix-blend-mode: difference;
+  opacity: 0.6;
+}
+
+.swatch-role {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--bone);
+  mix-blend-mode: difference;
+  opacity: 0.4;
+  margin-bottom: 8px;
+}
+
+.sw-inkblack { background: var(--inkblack); }
+.sw-gold { background: var(--kente-gold); }
+.sw-indigo { background: var(--adire-indigo); }
+.sw-terra { background: var(--terracotta); }
+.sw-bone { background: var(--bone); }
+.sw-green { background: var(--palm-green); }
+.sw-amber { background: var(--kente-amber); }
+.sw-teal { background: var(--ocean-teal); }
+
+/* Color usage rules */
+.color-rules {
+  padding: 80px;
+  background: var(--pale-bone);
+}
+
+.color-rule-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.color-rule-card {
+  padding: 40px;
+  background: var(--bone);
+}
+
+.crule-combo {
+  height: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.crule-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 8px;
+}
+
+.crule-desc {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ─── ④ TYPOGRAPHY ─── */
+.type-section { background: var(--pale-bone); }
+
+.type-showcase {
+  margin-bottom: 80px;
+}
+
+.type-family {
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 60px;
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.type-meta { padding-top: 8px; }
+
+.type-role {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  margin-bottom: 12px;
+}
+
+.type-family-name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.type-weights {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ash);
+  letter-spacing: 0.1em;
+}
+
+.type-specimen-display {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 72px;
+  letter-spacing: -3px;
+  line-height: 0.9;
+  color: var(--inkblack);
+}
+
+.type-specimen-mono {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--inkblack);
+}
+
+.type-specimen-body {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 1.7;
+  color: #333;
+  font-weight: 300;
+}
+
+.type-scale {
+  padding: 60px;
+  background: var(--inkblack);
+  margin-bottom: 60px;
+}
+
+.type-scale-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--kente-gold);
+  margin-bottom: 40px;
+}
+
+.ts-row {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.ts-size {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--ash);
+  width: 60px;
+  flex-shrink: 0;
+}
+
+.ts-text { color: var(--bone); font-family: var(--font-display); font-weight: 700; }
+
+/* ─── ⑤ PATTERN SYSTEM ─── */
+.pattern-section { background: var(--inkblack); }
+.pattern-section .section-title { color: var(--bone); }
+.pattern-section .section-num { color: var(--terracotta); }
+.pattern-section .section-intro { color: var(--ash); }
+
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-bottom: 60px;
+}
+
+.pattern-cell {
+  aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Pattern 1: Kente stripes */
+.pat-kente {
+  background: var(--inkblack);
+  background-image:
+    repeating-linear-gradient(0deg,
+      var(--kente-gold) 0px, var(--kente-gold) 4px,
+      transparent 4px, transparent 16px,
+      var(--terracotta) 16px, var(--terracotta) 20px,
+      transparent 20px, transparent 32px,
+      var(--adire-indigo) 32px, var(--adire-indigo) 36px,
+      transparent 36px, transparent 48px
+    ),
+    repeating-linear-gradient(90deg,
+      rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 2px,
+      transparent 2px, transparent 24px
+    );
+}
+
+/* Pattern 2: Adire dots */
+.pat-adire {
+  background: var(--adire-indigo);
+  background-image: radial-gradient(circle, var(--bone) 2px, transparent 2px),
+    radial-gradient(circle, var(--kente-gold) 1px, transparent 1px);
+  background-size: 24px 24px, 12px 12px;
+  background-position: 0 0, 6px 6px;
+}
+
+/* Pattern 3: Diagonal weave */
+.pat-weave {
+  background: var(--terracotta);
+  background-image:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 4px, transparent 4px, transparent 20px),
+    repeating-linear-gradient(-45deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 4px, transparent 4px, transparent 20px);
+}
+
+/* Pattern 4: Geo triangles */
+.pat-geo {
+  background: var(--bone);
+  background-image:
+    repeating-linear-gradient(60deg, var(--inkblack) 0px, var(--inkblack) 2px, transparent 2px, transparent 30px),
+    repeating-linear-gradient(-60deg, var(--kente-gold) 0px, var(--kente-gold) 2px, transparent 2px, transparent 30px),
+    repeating-linear-gradient(0deg, transparent 0px, transparent 13px, rgba(196,82,42,0.3) 13px, rgba(196,82,42,0.3) 15px);
+}
+
+/* Pattern 5: Checker */
+.pat-checker {
+  background: var(--palm-green);
+  background-image:
+    repeating-conic-gradient(var(--kente-gold) 0% 25%, transparent 0% 50%);
+  background-size: 20px 20px;
+}
+
+/* Pattern 6: Cross stitch */
+.pat-cross {
+  background: var(--inkblack);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(232,160,32,0.3) 0px, rgba(232,160,32,0.3) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(0deg, rgba(232,160,32,0.3) 0px, rgba(232,160,32,0.3) 1px, transparent 1px, transparent 20px),
+    repeating-linear-gradient(45deg, rgba(196,82,42,0.15) 0px, rgba(196,82,42,0.15) 1px, transparent 1px, transparent 20px);
+}
+
+/* Pattern 7: concentric rings */
+.pat-rings {
+  background: var(--kente-amber);
+  background-image:
+    radial-gradient(circle at 50% 50%, transparent 20px, rgba(0,0,0,0.1) 21px, transparent 22px),
+    radial-gradient(circle at 50% 50%, transparent 40px, rgba(0,0,0,0.08) 41px, transparent 42px),
+    radial-gradient(circle at 50% 50%, transparent 60px, rgba(0,0,0,0.06) 61px, transparent 62px),
+    radial-gradient(circle at 50% 50%, transparent 80px, rgba(0,0,0,0.05) 81px, transparent 82px);
+}
+
+/* Pattern 8: Mud cloth */
+.pat-mud {
+  background: #1C150D;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 19px, rgba(232,160,32,0.2) 20px),
+    repeating-linear-gradient(90deg, transparent, transparent 19px, rgba(232,160,32,0.2) 20px),
+    repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(232,160,32,0.15) 60px),
+    repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(232,160,32,0.15) 60px);
+}
+
+.pattern-label {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  background: rgba(0,0,0,0.4);
+  padding: 4px 8px;
+}
+
+.pattern-usage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.pu-card {
+  padding: 32px;
+  background: rgba(255,255,255,0.04);
+  border-left: 3px solid var(--kente-gold);
+}
+
+.pu-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--bone);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.pu-desc {
+  font-size: 13px;
+  color: var(--ash);
+  line-height: 1.5;
+}
+
+/* ─── ⑥ UI COMPONENTS ─── */
+.ui-section { background: var(--pale-bone); }
+
+.component-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.component-area {
+  background: var(--bone);
+  padding: 40px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.component-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: var(--inkblack);
+  color: var(--kente-gold);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+.btn-primary:hover {
+  background: var(--adire-indigo);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--inkblack);
+  border: 2px solid var(--inkblack);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+.btn-accent {
+  background: var(--kente-gold);
+  color: var(--inkblack);
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--terracotta);
+  border: 2px solid var(--terracotta);
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* Ticket card */
+.ticket-card {
+  background: var(--inkblack);
+  color: var(--bone);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.ticket-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: linear-gradient(180deg, var(--kente-gold), var(--terracotta));
+}
+
+.ticket-main {
+  padding: 28px 28px 28px 40px;
+}
+
+.ticket-stub {
+  width: 1px;
+  background: repeating-linear-gradient(180deg, rgba(255,255,255,0.2) 0px, rgba(255,255,255,0.2) 6px, transparent 6px, transparent 12px);
+  margin: 20px 0;
+}
+
+.ticket-right {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 100px;
+  background: rgba(232,160,32,0.08);
+  gap: 8px;
+}
+
+.ticket-event {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.ticket-meta {
+  display: flex;
+  gap: 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ash);
+  margin-bottom: 16px;
+}
+
+.ticket-price {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kente-gold);
+  background: rgba(232,160,32,0.1);
+  padding: 8px 16px;
+  border: 1px solid rgba(232,160,32,0.3);
+  display: inline-block;
+}
+
+.ticket-id {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--ash);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.ticket-qr {
+  width: 48px;
+  height: 48px;
+  background:
+    repeating-linear-gradient(90deg, var(--bone) 0px, var(--bone) 3px, transparent 3px, transparent 6px),
+    repeating-linear-gradient(0deg, var(--bone) 0px, var(--bone) 3px, transparent 3px, transparent 6px);
+  background-color: transparent;
+  opacity: 0.4;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 8px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 14px 16px;
+  background: transparent;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-bottom: 2px solid var(--inkblack);
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--inkblack);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-bottom-color: var(--kente-gold);
+}
+
+.form-input::placeholder { color: var(--ash); }
+
+/* Quantity selector */
+.qty-control {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  border: 2px solid var(--inkblack);
+  width: fit-content;
+}
+
+.qty-btn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--inkblack);
+  color: var(--kente-gold);
+  font-family: var(--font-display);
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  font-weight: 700;
+}
+
+.qty-val {
+  width: 60px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Badge / tag */
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border: 1px solid;
+}
+
+.tag-gold { border-color: var(--kente-gold); color: var(--kente-gold); }
+.tag-terra { border-color: var(--terracotta); color: var(--terracotta); background: rgba(196,82,42,0.08); }
+.tag-indigo { border-color: var(--adire-indigo); color: var(--adire-indigo); }
+.tag-sold { background: var(--inkblack); color: var(--bone); border-color: var(--inkblack); }
+
+/* Notification / toast */
+.toast {
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.toast-success {
+  background: rgba(45,80,22,0.1);
+  border-left: 4px solid var(--palm-green);
+}
+
+.toast-warn {
+  background: rgba(232,160,32,0.1);
+  border-left: 4px solid var(--kente-gold);
+}
+
+.toast-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.toast-success .toast-icon { background: var(--palm-green); color: #fff; }
+.toast-warn .toast-icon { background: var(--kente-gold); color: var(--inkblack); }
+
+.toast-text {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.toast-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+/* ─── ⑦ TICKET PAGE MOCKUP ─── */
+.mockup-section {
+  background: var(--inkblack);
+  padding: 80px;
+}
+
+.mockup-section .section-title { color: var(--bone); }
+.mockup-section .section-num { color: var(--terracotta); }
+.mockup-section .section-intro { color: var(--ash); }
+
+.mockup-wrapper {
+  background: #0E0E0C;
+  border: 1px solid rgba(255,255,255,0.05);
+  max-width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* Browser chrome */
+.browser-chrome {
+  background: #1A1A18;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.browser-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.bd { width: 10px; height: 10px; border-radius: 50%; }
+.bd-r { background: #FF5F57; }
+.bd-y { background: #FFBD2E; }
+.bd-g { background: #28C840; }
+
+.browser-url {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border-radius: 4px;
+  padding: 5px 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255,255,255,0.3);
+  letter-spacing: 0.05em;
+}
+
+/* Mockup nav */
+.mock-nav {
+  background: var(--inkblack);
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(232,160,32,0.15);
+}
+
+.mock-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  letter-spacing: -1px;
+}
+
+.mock-logo span { color: var(--kente-gold); }
+
+.mock-nav-links {
+  display: flex;
+  gap: 28px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+/* Mockup hero */
+.mock-hero {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 0;
+}
+
+.mock-hero-left {
+  padding: 48px 40px;
+  background: var(--inkblack);
+  position: relative;
+  overflow: hidden;
+}
+
+.mock-hero-left::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(232,160,32,0.05) 0px, rgba(232,160,32,0.05) 1px, transparent 1px, transparent 40px),
+    repeating-linear-gradient(90deg, rgba(232,160,32,0.05) 0px, rgba(232,160,32,0.05) 1px, transparent 1px, transparent 40px);
+  pointer-events: none;
+}
+
+.mock-event-tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--kente-gold);
+  background: rgba(232,160,32,0.1);
+  border: 1px solid rgba(232,160,32,0.2);
+  padding: 5px 12px;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.mock-event-title {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--bone);
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.mock-event-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ash);
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.meta-icon {
+  color: var(--kente-gold);
+  font-size: 12px;
+}
+
+.mock-desc {
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.6;
+  position: relative;
+  max-width: 380px;
+}
+
+/* Mockup ticket panel */
+.mock-ticket-panel {
+  background: #111110;
+  border-left: 1px solid rgba(255,255,255,0.05);
+  padding: 32px 28px;
+}
+
+.mtp-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 24px;
+}
+
+.ticket-tier {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.tier-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.tier-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--bone);
+}
+
+.tier-price {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--kente-gold);
+}
+
+.tier-sold {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--terracotta);
+  background: rgba(196,82,42,0.12);
+  padding: 3px 8px;
+}
+
+.tier-qty {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+.tq-btn {
+  width: 32px;
+  height: 32px;
+  background: rgba(255,255,255,0.05);
+  border: none;
+  color: var(--bone);
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tq-val {
+  width: 40px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--bone);
+  font-size: 14px;
+}
+
+.mock-total {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 8px;
+}
+
+.mt-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ash);
+}
+
+.mt-value {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--bone);
+}
+
+.mock-cta {
+  width: 100%;
+  padding: 16px;
+  background: var(--kente-gold);
+  color: var(--inkblack);
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
+}
+
+/* ─── ⑧ VOICE & TONE ─── */
+.voice-section { background: var(--pale-bone); }
+
+.voice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+}
+
+.voice-card {
+  padding: 48px;
+}
+
+.voice-card.do { background: var(--inkblack); }
+.voice-card.dont { background: #2A0800; }
+
+.vc-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.voice-card.do .vc-label { color: var(--kente-gold); }
+.voice-card.dont .vc-label { color: var(--terracotta); }
+
+.vc-example {
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.voice-card.do .vc-example {
+  background: rgba(232,160,32,0.06);
+  border-left: 3px solid var(--kente-gold);
+}
+
+.voice-card.dont .vc-example {
+  background: rgba(196,82,42,0.08);
+  border-left: 3px solid var(--terracotta);
+}
+
+.vc-quote {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  font-style: italic;
+}
+
+.voice-card.do .vc-quote { color: var(--bone); }
+.voice-card.dont .vc-quote { color: rgba(242,237,228,0.6); }
+
+.vc-note {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--ash);
+  margin-top: 8px;
+}
+
+.voice-principles {
+  padding: 80px;
+  background: var(--inkblack);
+}
+
+.vp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+}
+
+.vp-card {
+  padding: 40px 32px;
+  background: rgba(255,255,255,0.02);
+  border-top: 3px solid;
+}
+
+.vp-card:nth-child(1) { border-color: var(--kente-gold); }
+.vp-card:nth-child(2) { border-color: var(--terracotta); }
+.vp-card:nth-child(3) { border-color: var(--adire-indigo); }
+.vp-card:nth-child(4) { border-color: var(--palm-green); }
+
+.vp-num {
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.04);
+  margin-bottom: -10px;
+  line-height: 1;
+}
+
+.vp-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--bone);
+  margin-bottom: 12px;
+}
+
+.vp-desc {
+  font-size: 13px;
+  color: var(--ash);
+  line-height: 1.5;
+}
+
+/* ─── ⑨ IMAGERY ─── */
+.imagery-section { background: var(--bone); }
+
+.imagery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 60px;
+}
+
+.img-placeholder {
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-placeholder.afro1 {
+  background: linear-gradient(135deg, var(--adire-indigo) 0%, #0D1F45 100%);
+}
+
+.img-placeholder.afro2 {
+  background: linear-gradient(135deg, var(--terracotta) 0%, #8B2010 100%);
+}
+
+.img-placeholder.afro3 {
+  background: linear-gradient(135deg, var(--palm-green) 0%, #162A08 100%);
+}
+
+.img-placeholder.afro4 {
+  background: linear-gradient(135deg, var(--inkblack) 0%, #2A2010 100%);
+}
+
+.img-placeholder.afro5 {
+  background: linear-gradient(135deg, #3D1A08 0%, var(--terracotta) 100%);
+}
+
+.img-placeholder.afro6 {
+  background: linear-gradient(135deg, var(--kente-gold) 0%, #8B5000 100%);
+}
+
+.img-deco {
+  font-size: 48px;
+  opacity: 0.4;
+}
+
+.img-cap {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+}
+
+.img-pattern-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image:
+    repeating-linear-gradient(45deg, #fff 0px, #fff 1px, transparent 1px, transparent 12px),
+    repeating-linear-gradient(-45deg, #fff 0px, #fff 1px, transparent 1px, transparent 12px);
+}
+
+/* Imagery do/dont */
+.img-rules {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.img-rule-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid;
+}
+
+.img-rule-title.do-title { color: var(--palm-green); border-color: var(--palm-green); }
+.img-rule-title.dont-title { color: var(--terracotta); border-color: var(--terracotta); }
+
+.img-rule-list {
+  list-style: none;
+}
+
+.img-rule-list li {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.img-rule-list li::before {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.img-rule-list.do-list li::before { content: '✓'; color: var(--palm-green); }
+.img-rule-list.dont-list li::before { content: '✗'; color: var(--terracotta); }
+
+/* ─── BACK COVER ─── */
+.back-cover {
+  background: var(--inkblack);
+  padding: 120px 80px;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.back-cover::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  height: 100%;
+  background: var(--adire-indigo);
+  clip-path: polygon(40% 0%, 100% 0%, 100% 100%, 0% 100%);
+  opacity: 0.3;
+}
+
+.bc-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.bc-logo {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 40px;
+  letter-spacing: -2px;
+  color: var(--bone);
+}
+
+.bc-logo span { color: var(--kente-gold); }
+
+.bc-by {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--ash);
+  text-align: right;
+}
+
+.bc-by strong { display: block; color: var(--kente-gold); font-size: 13px; margin-top: 4px; }
+
+.bc-bottom {
+  position: relative;
+  z-index: 2;
+}
+
+.bc-rule {
+  font-family: var(--font-display);
+  font-size: 80px;
+  font-weight: 800;
+  letter-spacing: -4px;
+  color: rgba(255,255,255,0.04);
+  line-height: 1;
+  margin-bottom: 40px;
+}
+
+.bc-meta-row {
+  display: flex;
+  gap: 40px;
+  align-items: flex-end;
+}
+
+.bc-meta-item { }
+
+.bc-meta-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ash);
+  margin-bottom: 4px;
+}
+
+.bc-meta-value {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--bone);
+}
+
+.divider-gold {
+  height: 3px;
+  background: var(--kente-gold);
+  width: 40px;
+  margin-bottom: 40px;
+}
+
+/* ─── FRONTROW AFRICA STACKED LOGO ─── */
+.fr-logo-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 0.88;
+  gap: 0;
+}
+.fr-logo-stack.left-align { align-items: flex-start; text-align: left; }
+
+.frl-front {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+.frl-row-line {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+}
+.frl-row {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -2px;
+}
+.frl-dot {
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.frl-africa {
+  font-family: var(--font-mono);
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* ─── RESPONSIVE PRINT ─── */
+@media print {
+  .cover { page-break-after: always; min-height: 100vh; }
+}
+
+/* ─── ANIMATION ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.section-header { animation: fadeUp 0.6s ease both; }
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     COVER
+═══════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-pattern"></div>
+  <div class="cover-left">
+    <div class="cover-eyebrow">Brand Identity System</div>
+    <div class="cover-logo">
+      <div class="fr-cover-wordmark">
+        <span class="fr-cover-front">Front</span>
+        <div class="fr-cover-row-wrap">
+          <span class="fr-cover-row">Row</span>
+          <span class="fr-cover-dot"></span>
+        </div>
+        <span class="fr-cover-sub">Africa</span>
+      </div>
+    </div>
+    <p class="cover-tagline">Premium Afrocentric ticketing for Africa's live experiences — by Creative Spills</p>
+    <p class="cover-meta">Version 1.0 &nbsp;·&nbsp; 2025 &nbsp;·&nbsp; Confidential</p>
+  </div>
+  <div class="cover-right">
+    <div class="cover-version-block">
+      <div class="label">Document</div>
+      <div class="version">01</div>
+    </div>
+  </div>
+  <div class="cover-stamp">
+    <span>Creative<br>Spills<br>Studio</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     TABLE OF CONTENTS
+═══════════════════════════════════════════════════════ -->
+<div class="toc-page">
+  <div class="toc-left">
+    <div class="toc-label">Contents</div>
+    <h2 class="toc-heading">What's<br>Inside</h2>
+  </div>
+  <div class="toc-right">
+    <ul class="toc-list">
+      <li><span class="toc-num">01</span><span class="toc-title">Brand Story & Mission</span><span class="toc-dot"></span></li>
+      <li><span class="toc-num">02</span><span class="toc-title">Logo System</span><span class="toc-dot"></span></li>
+      <li><span class="toc-num">03</span><span class="toc-title">Colour Palette</span><span class="toc-dot"></span></li>
+      <li><span class="toc-num">04</span><span class="toc-title">Typography</span><span class="toc-dot"></span></li>
+      <li><span class="toc-num">05</span><span class="toc-title">Pattern System</span><span class="toc-dot"></span></li>
+      <li><span class="toc-num">06</span><span class="toc-title">UI Components</span><span class="toc-dot"></span></li>
+      <li><span class="toc-num">07</span><span class="toc-title">Platform Mockup</span><span class="toc-dot"></span></li>
+      <li><span class="toc-num">08</span><span class="toc-title">Voice & Tone</span><span class="toc-dot"></span></li>
+      <li><span class="toc-num">09</span><span class="toc-title">Imagery Guidelines</span><span class="toc-dot"></span></li>
+    </ul>
+  </div>
+</div>
+
+<div class="divider-bold"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     01 BRAND STORY
+═══════════════════════════════════════════════════════ -->
+<div class="section-full story-bg">
+  <div class="section" style="padding-top: 0; padding-bottom: 0;">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <div>
+        <h2 class="section-title" style="color: var(--bone);">Brand<br>Story</h2>
+      </div>
+    </div>
+    <div class="story-inner">
+      <div>
+        <div class="story-headline">The <span class="accent">best</span><br>seat is<br>yours.</div>
+      </div>
+      <div class="story-body">
+        <p>FrontRow Africa exists because Africa's live entertainment deserves more than an afterthought — it deserves the front row.</p>
+        <p>Built by Creative Spills, FrontRow Africa is premium Afrocentric ticketing infrastructure for concerts, comedy nights, cultural showcases, and intimate live events across the continent. From Nairobi to Lagos, from Accra to Johannesburg — this platform was built to reflect the full breadth and ambition of African live culture.</p>
+        <p>The design language is the same deliberate signal: warm earth tones drawn from African textiles, kente-inspired geometry, bold type that commands a stage. Every decision says the same thing — this was made by us, for us, about us.</p>
+        <p>FrontRow Africa isn't just a ticket. It's the first act of a night you'll never forget.</p>
+        <div class="story-values">
+          <div class="value-card">
+            <div class="value-name">Premium</div>
+            <div class="value-desc">Every touchpoint — design, copy, UX — should feel as good as the event itself</div>
+          </div>
+          <div class="value-card">
+            <div class="value-name">Continental</div>
+            <div class="value-desc">Built for all 54 countries. Not one city, not one scene — the whole continent</div>
+          </div>
+          <div class="value-card">
+            <div class="value-name">Trusted</div>
+            <div class="value-desc">Fast, reliable, transparent payments. No drama between you and the door</div>
+          </div>
+          <div class="value-card">
+            <div class="value-name">Rooted</div>
+            <div class="value-desc">Visual language drawn from African textile and material culture traditions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-bold"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     02 LOGO SYSTEM
+═══════════════════════════════════════════════════════ -->
+<div class="section-full logo-section">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <div>
+        <h2 class="section-title">Logo<br>System</h2>
+        <p class="section-intro">The FrontRow Africa wordmark is bold, stacked, and typographically precise. <em>Front</em> in bone white, <em>Row</em> in Kente Gold, <em>Africa</em> in small-caps mono below. The terracotta dot — drawn from adire and kente tradition — is the reserved seat: yours.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="logo-grid">
+    <!-- Dark bg -->
+    <div class="logo-cell dark">
+      <div class="fr-logo-stack">
+        <span class="frl-front" style="font-size:44px;color:var(--bone);">Front</span>
+        <div class="frl-row-line">
+          <span class="frl-row" style="font-size:44px;color:var(--kente-gold);">Row</span>
+          <span class="frl-dot" style="width:10px;height:10px;background:var(--terracotta);margin-bottom:8px;"></span>
+        </div>
+        <span class="frl-africa" style="font-size:9px;color:var(--ash);">Africa</span>
+      </div>
+      <div class="logo-cell-label">Primary — Dark</div>
+    </div>
+    <!-- Indigo bg -->
+    <div class="logo-cell mid">
+      <div class="fr-logo-stack">
+        <span class="frl-front" style="font-size:44px;color:var(--bone);">Front</span>
+        <div class="frl-row-line">
+          <span class="frl-row" style="font-size:44px;color:var(--kente-amber);">Row</span>
+          <span class="frl-dot" style="width:10px;height:10px;background:var(--kente-amber);margin-bottom:8px;"></span>
+        </div>
+        <span class="frl-africa" style="font-size:9px;color:rgba(242,237,228,0.5);">Africa</span>
+      </div>
+      <div class="logo-cell-label">On Indigo</div>
+    </div>
+    <!-- Light bg -->
+    <div class="logo-cell light">
+      <div class="fr-logo-stack">
+        <span class="frl-front" style="font-size:44px;color:var(--inkblack);">Front</span>
+        <div class="frl-row-line">
+          <span class="frl-row" style="font-size:44px;color:var(--adire-indigo);">Row</span>
+          <span class="frl-dot" style="width:10px;height:10px;background:var(--terracotta);margin-bottom:8px;"></span>
+        </div>
+        <span class="frl-africa" style="font-size:9px;color:var(--ash);">Africa</span>
+      </div>
+      <div class="logo-cell-label" style="color:#888">On Light</div>
+    </div>
+    <!-- Gold bg -->
+    <div class="logo-cell gold">
+      <div class="fr-logo-stack">
+        <span class="frl-front" style="font-size:44px;color:var(--inkblack);">Front</span>
+        <div class="frl-row-line">
+          <span class="frl-row" style="font-size:44px;color:var(--inkblack);">Row</span>
+          <span class="frl-dot" style="width:10px;height:10px;background:var(--terracotta);margin-bottom:8px;"></span>
+        </div>
+        <span class="frl-africa" style="font-size:9px;color:rgba(10,10,8,0.45);">Africa</span>
+      </div>
+      <div class="logo-cell-label" style="color:rgba(0,0,0,0.4)">On Gold</div>
+    </div>
+    <!-- Terracotta -->
+    <div class="logo-cell terra">
+      <div class="fr-logo-stack">
+        <span class="frl-front" style="font-size:44px;color:#fff;">Front</span>
+        <div class="frl-row-line">
+          <span class="frl-row" style="font-size:44px;color:#fff;">Row</span>
+          <span class="frl-dot" style="width:10px;height:10px;background:rgba(255,255,255,0.6);margin-bottom:8px;"></span>
+        </div>
+        <span class="frl-africa" style="font-size:9px;color:rgba(255,255,255,0.5);">Africa</span>
+      </div>
+      <div class="logo-cell-label">On Terracotta</div>
+    </div>
+    <!-- Alternate accent -->
+    <div class="logo-cell ink2">
+      <div class="fr-logo-stack">
+        <span class="frl-front" style="font-size:44px;color:var(--bone);">Front</span>
+        <div class="frl-row-line">
+          <span class="frl-row" style="font-size:44px;color:var(--terracotta);">Row</span>
+          <span class="frl-dot" style="width:10px;height:10px;background:var(--kente-gold);margin-bottom:8px;"></span>
+        </div>
+        <span class="frl-africa" style="font-size:9px;color:rgba(232,237,228,0.35);">Africa</span>
+      </div>
+      <div class="logo-cell-label">Alternate Accent</div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top: 0;">
+    <div class="logo-anatomy">
+      <div class="anatomy-visual">
+        <div class="fr-logo-stack left-align">
+          <span class="frl-front" style="font-size:56px;color:#fff;">Front</span>
+          <div class="frl-row-line">
+            <span class="frl-row" style="font-size:56px;color:var(--kente-gold);">Row</span>
+            <span class="frl-dot" style="width:13px;height:13px;background:var(--terracotta);margin-bottom:10px;"></span>
+          </div>
+          <span class="frl-africa" style="font-size:11px;color:var(--ash);">Africa</span>
+        </div>
+        <span class="anatomy-arrow a1">Syne 800 / Bone White</span>
+        <span class="anatomy-arrow a2">Syne 800 / Kente Gold</span>
+        <span class="anatomy-arrow a3">Terracotta Dot — The Reserved Seat</span>
+      </div>
+      <div class="anatomy-notes">
+        <h4>Wordmark Anatomy</h4>
+        <ul>
+          <li><strong>Front</strong> is always rendered in bone white or black — it anchors the brand name and commands attention.</li>
+          <li><strong>Row</strong> shifts to the accent colour (Kente Gold or Adire Indigo) to create rhythm and hierarchy within the stacked mark.</li>
+          <li><strong>Africa</strong> in small-caps mono sits below the main mark — always present in the primary lockup. It may be dropped at very small sizes (icon use only).</li>
+          <li>The <strong>Dot Mark</strong> is a deliberate terracotta circle — never an asterisk, never decorative. It is the reserved seat. It is yours.</li>
+          <li>Never stretch, rotate, or alter the weight of any element in the wordmark.</li>
+          <li>Minimum print size: 24px. Minimum digital display height: 20px.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="clear-space">
+      <span class="clear-x cx-top">1× clearspace</span>
+      <span class="clear-x cx-left">1×</span>
+      <span class="clear-x cx-right">1×</span>
+      <span class="clear-x cx-bottom">1× clearspace</span>
+      <div style="padding: 40px;">
+        <div class="fr-logo-stack">
+          <span class="frl-front" style="font-size:40px;color:var(--inkblack);">Front</span>
+          <div class="frl-row-line">
+            <span class="frl-row" style="font-size:40px;color:var(--adire-indigo);">Row</span>
+            <span class="frl-dot" style="width:9px;height:9px;background:var(--terracotta);margin-bottom:7px;"></span>
+          </div>
+          <span class="frl-africa" style="font-size:9px;color:var(--ash);">Africa</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-bold"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     03 COLOUR SYSTEM
+═══════════════════════════════════════════════════════ -->
+<div class="section-full" style="padding: 0; background: var(--inkblack);">
+  <div class="color-hero">
+    <div class="section-header" style="margin-bottom: 40px;">
+      <span class="section-num">03</span>
+      <div>
+        <h2 class="section-title" style="color: var(--bone);">Colour<br>System</h2>
+        <p class="section-intro">Every colour in Ticketr's palette is drawn from the African landscape, fabric, and ceremony. This is not generic neutrality — it is considered, cultural, and warm.</p>
+      </div>
+    </div>
+    <div class="color-strips">
+      <span style="background:var(--inkblack);flex:2"></span>
+      <span style="background:var(--kente-gold);flex:1.5"></span>
+      <span style="background:var(--adire-indigo);flex:1"></span>
+      <span style="background:var(--terracotta);flex:1"></span>
+      <span style="background:var(--bone);flex:1"></span>
+      <span style="background:var(--palm-green);flex:0.5"></span>
+      <span style="background:var(--kente-amber);flex:0.5"></span>
+      <span style="background:var(--ocean-teal);flex:0.5"></span>
+    </div>
+  </div>
+
+  <div class="color-palette-grid">
+    <div class="color-swatch sw-inkblack" style="aspect-ratio: auto; padding: 32px 24px; min-height: 200px;">
+      <div class="swatch-role">Primary Background</div>
+      <div class="swatch-name">Ink Black</div>
+      <div class="swatch-hex">#0A0A08</div>
+    </div>
+    <div class="color-swatch sw-gold">
+      <div class="swatch-role">Primary Accent</div>
+      <div class="swatch-name">Kente Gold</div>
+      <div class="swatch-hex">#E8A020</div>
+    </div>
+    <div class="color-swatch sw-indigo">
+      <div class="swatch-role">Secondary</div>
+      <div class="swatch-name">Adire Indigo</div>
+      <div class="swatch-hex">#1A2C5B</div>
+    </div>
+    <div class="color-swatch sw-terra">
+      <div class="swatch-role">Highlight</div>
+      <div class="swatch-name">Terracotta</div>
+      <div class="swatch-hex">#C4522A</div>
+    </div>
+    <div class="color-swatch sw-bone" style="">
+      <div class="swatch-role" style="color: #888;">Text on Dark</div>
+      <div class="swatch-name" style="color: var(--inkblack);">Bone</div>
+      <div class="swatch-hex" style="color: var(--inkblack);opacity:0.5">#F2EDE4</div>
+    </div>
+    <div class="color-swatch sw-green">
+      <div class="swatch-role">Status: Success</div>
+      <div class="swatch-name">Palm Green</div>
+      <div class="swatch-hex">#2D5016</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--inkblack);padding: 0 80px 80px;">
+    <div class="color-swatch sw-amber" style="aspect-ratio:auto;padding:24px;min-height:100px;">
+      <div class="swatch-role">Extended Palette</div>
+      <div class="swatch-name">Kente Amber</div>
+      <div class="swatch-hex">#F0C040</div>
+    </div>
+    <div class="color-swatch sw-teal" style="aspect-ratio:auto;padding:24px;min-height:100px;">
+      <div class="swatch-role">Extended Palette</div>
+      <div class="swatch-name">Ocean Teal</div>
+      <div class="swatch-hex">#1B7A6E</div>
+    </div>
+  </div>
+</div>
+
+<div class="color-rules">
+  <div class="section" style="padding-top: 0;">
+    <div class="section-header">
+      <span class="section-num" style="color: var(--terracotta);">03.1</span>
+      <h3 style="font-family: var(--font-display); font-size: 36px; font-weight: 800;">Colour Pairings</h3>
+    </div>
+    <div class="color-rule-grid">
+      <div class="color-rule-card">
+        <div class="crule-combo" style="background:var(--inkblack);color:var(--kente-gold)">Ticketr</div>
+        <div class="crule-label">Ink Black + Kente Gold</div>
+        <div class="crule-desc">The primary combination. Used for hero areas, CTAs, and primary marketing material. Maximum impact.</div>
+      </div>
+      <div class="color-rule-card">
+        <div class="crule-combo" style="background:var(--adire-indigo);color:var(--bone)">Ticketr</div>
+        <div class="crule-label">Adire Indigo + Bone</div>
+        <div class="crule-desc">Secondary combination. Used for informational sections, secondary navigation, and lighter UI contexts.</div>
+      </div>
+      <div class="color-rule-card">
+        <div class="crule-combo" style="background:var(--bone);color:var(--inkblack)">Ticketr</div>
+        <div class="crule-label">Bone + Ink Black</div>
+        <div class="crule-desc">Clean reading context. Body copy, long-form descriptions, and form fields live on this combination.</div>
+      </div>
+      <div class="color-rule-card">
+        <div class="crule-combo" style="background:var(--kente-gold);color:var(--inkblack)">Buy Now</div>
+        <div class="crule-label">Kente Gold + Ink Black</div>
+        <div class="crule-desc">Reserved for purchase buttons, sold-out notices reversed, and the most prominent conversion actions only.</div>
+      </div>
+      <div class="color-rule-card">
+        <div class="crule-combo" style="background:var(--terracotta);color:var(--bone)">SOLD OUT</div>
+        <div class="crule-label">Terracotta + Bone</div>
+        <div class="crule-desc">Warning states, sold-out indicators, and urgency messaging. Use sparingly — it should stop the eye.</div>
+      </div>
+      <div class="color-rule-card">
+        <div class="crule-combo" style="background:var(--palm-green);color:var(--bone)">✓ Confirmed</div>
+        <div class="crule-label">Palm Green + Bone</div>
+        <div class="crule-desc">Success states only. Ticket confirmation, booking success, payment completion.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-bold"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     04 TYPOGRAPHY
+═══════════════════════════════════════════════════════ -->
+<div class="section-full type-section">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <div>
+        <h2 class="section-title">Typog-<br>raphy</h2>
+        <p class="section-intro">The same three voices as the Creative Spills system — Syne for presence, Space Mono for precision, DM Sans for warmth — applied to FrontRow Africa's premium continental tone.</p>
+      </div>
+    </div>
+
+    <div class="type-family">
+      <div class="type-meta">
+        <div class="type-role">Display / Headlines</div>
+        <div class="type-family-name">Syne</div>
+        <div class="type-weights">400 · 600 · 700 · 800</div>
+      </div>
+      <div>
+        <div class="type-specimen-display">Africa<br>front &<br>centre.</div>
+        <p style="margin-top:24px;font-family:var(--font-display);font-size:18px;font-weight:400;color:#888;letter-spacing:-0.3px">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>a b c d e f g h i j k l m n o p q r s t u v w x y z<br>0 1 2 3 4 5 6 7 8 9 · , . ! ?</p>
+      </div>
+    </div>
+
+    <div class="type-family">
+      <div class="type-meta">
+        <div class="type-role">Utility / Labels / Data</div>
+        <div class="type-family-name">Space Mono</div>
+        <div class="type-weights">400 · 700</div>
+      </div>
+      <div>
+        <div class="type-specimen-mono">KES 5,000.00<br>MAR 14 · 20:00 EAT<br>ROW A · SEAT 14<br>TICKET #FR-A14-CC29</div>
+        <p style="margin-top:24px;font-family:var(--font-mono);font-size:13px;color:#888;line-height:1.8">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>0 1 2 3 4 5 6 7 8 9</p>
+      </div>
+    </div>
+
+    <div class="type-family">
+      <div class="type-meta">
+        <div class="type-role">Body / Interface Text</div>
+        <div class="type-family-name">DM Sans</div>
+        <div class="type-weights">300 · 400 · 500 · italic</div>
+      </div>
+      <div>
+        <div class="type-specimen-body">A show this iconic doesn't come to your city twice. Sauti Sol take the stage for one night only — production at full scale, and every seat is the front row.</div>
+        <p style="margin-top:24px;font-family:var(--font-body);font-size:14px;color:#888;font-weight:300;line-height:1.7">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z · 0 1 2 3 4 5 6 7 8 9</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="type-scale">
+    <div class="type-scale-title">Type Scale</div>
+    <div class="ts-row"><span class="ts-size">96px</span><span class="ts-text" style="font-size:60px">Display XL</span></div>
+    <div class="ts-row"><span class="ts-size">72px</span><span class="ts-text" style="font-size:48px">Display L</span></div>
+    <div class="ts-row"><span class="ts-size">48px</span><span class="ts-text" style="font-size:36px">Heading 1</span></div>
+    <div class="ts-row"><span class="ts-size">36px</span><span class="ts-text" style="font-size:28px">Heading 2</span></div>
+    <div class="ts-row"><span class="ts-size">24px</span><span class="ts-text" style="font-size:22px">Heading 3</span></div>
+    <div class="ts-row"><span class="ts-size">18px</span><span class="ts-text" style="font-size:18px;font-family:var(--font-body);font-weight:400;color:var(--bone)">Body Large — event descriptions, page intros</span></div>
+    <div class="ts-row"><span class="ts-size">16px</span><span class="ts-text" style="font-size:16px;font-family:var(--font-body);font-weight:400;color:rgba(242,237,228,0.7)">Body Regular — UI labels, paragraphs, secondary text</span></div>
+    <div class="ts-row"><span class="ts-size">11px</span><span class="ts-text" style="font-size:11px;font-family:var(--font-mono);letter-spacing:0.2em;text-transform:uppercase;color:var(--ash)">MICRO · LABELS · METADATA · MONO ONLY</span></div>
+  </div>
+</div>
+
+<div class="divider-bold"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     05 PATTERN SYSTEM
+═══════════════════════════════════════════════════════ -->
+<div class="section-full pattern-section">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <div>
+        <h2 class="section-title">Pattern<br>System</h2>
+        <p class="section-intro">Ticketr's pattern library is inspired by African textile traditions — kente, adire, mud cloth, and woven weave — reinterpreted as geometric, scalable digital motifs.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pattern-grid">
+    <div class="pattern-cell pat-kente">
+      <span class="pattern-label">Kente Stripes</span>
+    </div>
+    <div class="pattern-cell pat-adire">
+      <span class="pattern-label">Adire Dot</span>
+    </div>
+    <div class="pattern-cell pat-weave">
+      <span class="pattern-label">Diagonal Weave</span>
+    </div>
+    <div class="pattern-cell pat-geo">
+      <span class="pattern-label">Geo Lattice</span>
+    </div>
+    <div class="pattern-cell pat-checker">
+      <span class="pattern-label">Kente Check</span>
+    </div>
+    <div class="pattern-cell pat-cross">
+      <span class="pattern-label">Cross Stitch Grid</span>
+    </div>
+    <div class="pattern-cell pat-rings">
+      <span class="pattern-label">Concentric Rings</span>
+    </div>
+    <div class="pattern-cell pat-mud">
+      <span class="pattern-label">Mud Cloth</span>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top: 60px;">
+    <div class="pattern-usage">
+      <div class="pu-card">
+        <div class="pu-name">Hero Backgrounds</div>
+        <div class="pu-desc">Use Kente Stripes or Geo Lattice at 5–10% opacity over dark backgrounds for event hero sections.</div>
+      </div>
+      <div class="pu-card">
+        <div class="pu-name">Ticket Borders</div>
+        <div class="pu-desc">The adire dot pattern may appear along the left edge of the digital ticket at 15% opacity.</div>
+      </div>
+      <div class="pu-card">
+        <div class="pu-name">Print Collateral</div>
+        <div class="pu-desc">Mud cloth and diagonal weave are reserved for physical print — posters, wristbands, and programmes.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-bold"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     06 UI COMPONENTS
+═══════════════════════════════════════════════════════ -->
+<div class="section-full ui-section">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <div>
+        <h2 class="section-title">UI Com-<br>ponents</h2>
+        <p class="section-intro">Functional, considered, and alive with personality. Every component reflects the Ticketr aesthetic — no off-the-shelf defaults.</p>
+      </div>
+    </div>
+
+    <div class="component-grid">
+      <!-- Buttons -->
+      <div class="component-area">
+        <div class="component-label">Buttons & CTAs</div>
+        <div class="btn-row">
+          <button class="btn btn-primary">Buy Tickets</button>
+          <button class="btn btn-accent">→ Proceed</button>
+        </div>
+        <div class="btn-row">
+          <button class="btn btn-secondary">View Event</button>
+          <button class="btn btn-ghost">Share</button>
+        </div>
+        <div style="margin-top:20px;padding:16px;background:rgba(0,0,0,0.04);border-left:3px solid var(--ash)">
+          <p style="font-size:12px;color:var(--ash);line-height:1.5;font-family:var(--font-mono);letter-spacing:0.05em">The clipped corner (polygon clip-path) is the signature button shape — inspired by the cut-corner geometry found in kente pattern edges.</p>
+        </div>
+      </div>
+
+      <!-- Tags -->
+      <div class="component-area">
+        <div class="component-label">Badges & Tags</div>
+        <div class="tag-row">
+          <span class="tag tag-gold">Early Bird</span>
+          <span class="tag tag-gold">Advance</span>
+          <span class="tag tag-terra">Last Minute</span>
+          <span class="tag tag-sold">SOLD OUT</span>
+        </div>
+        <div class="tag-row">
+          <span class="tag tag-indigo">Nairobi</span>
+          <span class="tag tag-indigo">Live Music</span>
+          <span class="tag tag-gold">19:30 EAT</span>
+        </div>
+        <div style="margin-top:20px;">
+          <div class="toast toast-success">
+            <div class="toast-icon">✓</div>
+            <div class="toast-text">
+              <div class="toast-title">Booking Confirmed</div>
+              <div style="font-size:12px;color:#555">Your tickets for Gilad @ Suave Kitchen have been sent.</div>
+            </div>
+          </div>
+          <div class="toast toast-warn">
+            <div class="toast-icon">!</div>
+            <div class="toast-text">
+              <div class="toast-title">Selling Fast</div>
+              <div style="font-size:12px;color:#555">Only 3 advance tickets remaining.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ticket card -->
+      <div class="component-area" style="grid-column: 1 / -1;">
+        <div class="component-label">Ticket Card Component</div>
+        <div class="ticket-card">
+          <div class="ticket-main">
+            <div class="ticket-event">Sauti Sol: Homecoming Live</div>
+            <div class="ticket-meta">
+              <span>14 MAR 2026</span>
+              <span>·</span>
+              <span>20:00 EAT</span>
+              <span>·</span>
+              <span>KASARANI STADIUM, NBI</span>
+            </div>
+            <span class="ticket-price">KES 5,000 — Front Row Presale</span>
+          </div>
+          <div class="ticket-stub"></div>
+          <div class="ticket-right">
+            <div class="ticket-qr"></div>
+            <div class="ticket-id">FR-SSTK-A14-CC29</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form elements -->
+      <div class="component-area">
+        <div class="component-label">Form Fields</div>
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input class="form-input" type="text" placeholder="e.g. Amina Wanjiku" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input class="form-input" type="text" placeholder="+254 7XX XXX XXX" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="you@example.com" />
+        </div>
+      </div>
+
+      <!-- Quantity -->
+      <div class="component-area">
+        <div class="component-label">Quantity Selector</div>
+        <div style="margin-bottom:32px;">
+          <div style="font-family:var(--font-display);font-weight:700;margin-bottom:12px;">Front Row Presale · KES 5,000</div>
+          <div class="qty-control">
+            <button class="qty-btn">−</button>
+            <span class="qty-val">2</span>
+            <button class="qty-btn">+</button>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(0,0,0,0.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+          <span style="font-family:var(--font-mono);font-size:11px;letter-spacing:0.15em;color:var(--ash)">TOTAL</span>
+          <span style="font-family:var(--font-display);font-weight:800;font-size:28px;">KES 10,000</span>
+        </div>
+        <button class="btn btn-primary" style="width:100%;justify-content:center;">Proceed to Payment</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-bold"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     07 PLATFORM MOCKUP
+═══════════════════════════════════════════════════════ -->
+<div class="mockup-section">
+  <div class="section-header" style="margin-bottom: 60px;">
+    <span class="section-num">07</span>
+    <div>
+      <h2 class="section-title" style="color:var(--bone);">Platform<br>Mockup</h2>
+      <p class="section-intro">How FrontRow Africa looks at the most important moment — when a fan is ready to buy. Same flow as the StandUp Collective model, elevated to FrontRow Africa's premium register.</p>
+    </div>
+  </div>
+
+  <div class="mockup-wrapper">
+    <!-- Browser chrome -->
+    <div class="browser-chrome">
+      <div class="browser-dots">
+        <span class="bd bd-r"></span>
+        <span class="bd bd-y"></span>
+        <span class="bd bd-g"></span>
+      </div>
+      <div class="browser-url">frontrow.africa/events/sauti-sol-homecoming-nairobi-14mar</div>
+    </div>
+
+    <!-- Nav -->
+    <div class="mock-nav">
+      <div style="display:flex;flex-direction:column;line-height:0.85;gap:0;">
+        <span style="font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--bone);letter-spacing:-1px;">Front</span>
+        <div style="display:flex;align-items:flex-end;gap:3px;">
+          <span style="font-family:var(--font-display);font-weight:800;font-size:18px;color:var(--kente-gold);letter-spacing:-1px;">Row</span>
+          <span style="width:5px;height:5px;background:var(--terracotta);border-radius:50%;flex-shrink:0;margin-bottom:3px;"></span>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:7px;letter-spacing:0.35em;text-transform:uppercase;color:var(--ash);margin-top:3px;">Africa</span>
+      </div>
+      <div class="mock-nav-links">
+        <span>Events</span>
+        <span>Artists</span>
+        <span>Venues</span>
+        <span>My Tickets</span>
+      </div>
+    </div>
+
+    <!-- Hero + Ticket panel -->
+    <div class="mock-hero">
+      <div class="mock-hero-left">
+        <span class="mock-event-tag">🎤 Live Music · Nairobi</span>
+        <div class="mock-event-title">Sauti Sol:<br>Homecoming Live</div>
+        <div class="mock-event-meta">
+          <div class="meta-row"><span class="meta-icon">📅</span> 14 March 2026</div>
+          <div class="meta-row"><span class="meta-icon">🕗</span> 20:00 – 23:30 EAT</div>
+          <div class="meta-row"><span class="meta-icon">📍</span> Kasarani Stadium, Nairobi</div>
+        </div>
+        <div class="mock-desc">After two years on the road, Sauti Sol return to Nairobi for one night only — full production, full stadium. Every seat is the front row.</div>
+      </div>
+
+      <div class="mock-ticket-panel">
+        <div class="mtp-title">Select Tickets</div>
+
+        <div class="ticket-tier">
+          <div class="tier-header">
+            <span class="tier-name">Early Bird</span>
+            <span class="tier-sold">SOLD OUT</span>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:10px;color:var(--ash);letter-spacing:0.1em;">KES 3,500</div>
+        </div>
+
+        <div class="ticket-tier">
+          <div class="tier-header">
+            <span class="tier-name">Front Row Presale</span>
+            <span class="tier-price">KES 5,000</span>
+          </div>
+          <div class="tier-qty" style="margin-top:10px">
+            <button class="tq-btn">−</button>
+            <span class="tq-val">1</span>
+            <button class="tq-btn">+</button>
+          </div>
+        </div>
+
+        <div class="ticket-tier">
+          <div class="tier-header">
+            <span class="tier-name">General Advance</span>
+            <span class="tier-price">KES 3,000</span>
+          </div>
+          <div class="tier-qty" style="margin-top:10px">
+            <button class="tq-btn">−</button>
+            <span class="tq-val">0</span>
+            <button class="tq-btn">+</button>
+          </div>
+        </div>
+
+        <div class="mock-total">
+          <span class="mt-label">Total</span>
+          <span class="mt-value">KES 5,000</span>
+        </div>
+
+        <button class="mock-cta">Proceed to Payment</button>
+
+        <div style="margin-top:16px;font-family:var(--font-mono);font-size:9px;letter-spacing:0.1em;color:var(--ash);text-align:center;">Powered by M-Pesa · Visa · Airtel Money</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-bold"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     08 VOICE & TONE
+═══════════════════════════════════════════════════════ -->
+<div class="section-full">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <div>
+        <h2 class="section-title">Voice<br>& Tone</h2>
+        <p class="section-intro">FrontRow Africa speaks like the most plugged-in person in the room — knowledgeable, warm, and never pretentious. Premium without being cold. Continental without being vague.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="voice-grid">
+    <div class="voice-card do">
+      <div class="vc-label">✓ &nbsp; Do Write This</div>
+      <div class="vc-example">
+        <div class="vc-quote">"Sauti Sol are back. One night. Kasarani. This is the show you'll tell people you were at."</div>
+        <div class="vc-note">Confident. Present tense. Understands what this moment means culturally.</div>
+      </div>
+      <div class="vc-example">
+        <div class="vc-quote">"Front Row Presale closes at midnight — after that, it's General. At double the price."</div>
+        <div class="vc-note">Honest urgency. No hype. Just facts that make the decision easy.</div>
+      </div>
+      <div class="vc-example">
+        <div class="vc-quote">"Tickets confirmed. Gates open 18:30. See you at the front. 🎤"</div>
+        <div class="vc-note">Warm, peer-level. Closes the loop with energy, not a disclaimer.</div>
+      </div>
+    </div>
+
+    <div class="voice-card dont">
+      <div class="vc-label">✗ &nbsp; Don't Write This</div>
+      <div class="vc-example">
+        <div class="vc-quote">"We are pleased to present an unmissable evening of world-class entertainment."</div>
+        <div class="vc-note">Generic. Zero specificity. Could describe anything. Not FrontRow.</div>
+      </div>
+      <div class="vc-example">
+        <div class="vc-quote">"HURRY!!! TICKETS SELLING FAST!!! DON'T MISS OUT!!!"</div>
+        <div class="vc-note">Desperate energy. Excessive punctuation signals low trust.</div>
+      </div>
+      <div class="vc-example">
+        <div class="vc-quote">"Your booking reference number has been successfully processed."</div>
+        <div class="vc-note">Bank language. Kills the excitement of buying a ticket. Never do this.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="voice-principles">
+    <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:0.25em;color:var(--kente-gold);text-transform:uppercase;margin-bottom:40px;">Voice Principles</div>
+    <div class="vp-grid">
+      <div class="vp-card">
+        <div class="vp-num">01</div>
+        <div class="vp-name">Specific</div>
+        <div class="vp-desc">Name the artist, the city, the venue. Specificity builds trust. "Kasarani Stadium, Nairobi" beats "a premier venue" every time.</div>
+      </div>
+      <div class="vp-card">
+        <div class="vp-num">02</div>
+        <div class="vp-name">Present</div>
+        <div class="vp-desc">Events are now. The energy is now. Write in the present tense wherever possible. The front row doesn't wait.</div>
+      </div>
+      <div class="vp-card">
+        <div class="vp-num">03</div>
+        <div class="vp-name">Earned</div>
+        <div class="vp-desc">Premium never shouts. Our confidence comes from knowing the culture deeply — not from asserting that we're the best.</div>
+      </div>
+      <div class="vp-card">
+        <div class="vp-num">04</div>
+        <div class="vp-name">Continental</div>
+        <div class="vp-desc">We speak to all of Africa. From Lagos to Nairobi to Accra — our voice recognises the full breadth of the continent's live scene.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-bold"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     09 IMAGERY
+═══════════════════════════════════════════════════════ -->
+<div class="section-full imagery-section">
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <div>
+        <h2 class="section-title">Imagery<br>Guidelines</h2>
+        <p class="section-intro">Photography must feel editorial, alive, and specifically African. FrontRow Africa's premium positioning demands imagery that matches — real moments, real faces, real African stages.</p>
+      </div>
+    </div>
+
+    <div class="imagery-grid">
+      <div class="img-placeholder afro1">
+        <div class="img-pattern-overlay"></div>
+        <div class="img-deco">🎤</div>
+        <div class="img-cap">Artist on stage<br>Intimate venue lighting</div>
+      </div>
+      <div class="img-placeholder afro2">
+        <div class="img-pattern-overlay"></div>
+        <div class="img-deco">🥁</div>
+        <div class="img-cap">Audience energy<br>Candid crowd moments</div>
+      </div>
+      <div class="img-placeholder afro3">
+        <div class="img-pattern-overlay"></div>
+        <div class="img-deco">🎶</div>
+        <div class="img-cap">Venue texture<br>Warm ambient light</div>
+      </div>
+      <div class="img-placeholder afro4">
+        <div class="img-pattern-overlay"></div>
+        <div class="img-deco">✨</div>
+        <div class="img-cap">Artist close-ups<br>Natural, editorial feel</div>
+      </div>
+      <div class="img-placeholder afro5">
+        <div class="img-pattern-overlay"></div>
+        <div class="img-deco">🎸</div>
+        <div class="img-cap">Backstage moments<br>Authentic, unposed</div>
+      </div>
+      <div class="img-placeholder afro6">
+        <div class="img-pattern-overlay"></div>
+        <div class="img-deco">🌍</div>
+        <div class="img-cap">City & venue exterior<br>Nairobi context</div>
+      </div>
+    </div>
+
+    <div class="img-rules">
+      <div>
+        <div class="img-rule-title do-title">✓ &nbsp; Use imagery that</div>
+        <ul class="img-rule-list do-list">
+          <li>Captures real moments from real African events — candid over staged</li>
+          <li>Includes warm, golden tones that echo the FrontRow Africa palette</li>
+          <li>Shows African faces, community, and collective energy prominently</li>
+          <li>Uses rich venue atmosphere: stage glow, crowd depth, ambient haze</li>
+          <li>Reflects the continent broadly — not one city, not one scene</li>
+          <li>Crops tightly and asymmetrically — editorial, not event catalogue</li>
+        </ul>
+      </div>
+      <div>
+        <div class="img-rule-title dont-title">✗ &nbsp; Avoid imagery that</div>
+        <ul class="img-rule-list dont-list">
+          <li>Looks like stock photography — clean, staged, generic</li>
+          <li>Uses bright white or harsh studio lighting</li>
+          <li>Shows only European faces without diversity</li>
+          <li>Has heavy, garish filters or Instagram-style overlays</li>
+          <li>Centers the venue over the people and the energy</li>
+          <li>Is low resolution or pixelated — quality matters</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider-bold"></div>
+
+<!-- ═══════════════════════════════════════════════════════
+     BACK COVER
+═══════════════════════════════════════════════════════ -->
+<div class="back-cover">
+  <div class="bc-top">
+    <div>
+      <div style="display:flex;flex-direction:column;line-height:0.88;gap:0;">
+        <span style="font-family:var(--font-display);font-weight:800;font-size:36px;color:var(--bone);letter-spacing:-1.5px;">Front</span>
+        <div style="display:flex;align-items:flex-end;gap:4px;">
+          <span style="font-family:var(--font-display);font-weight:800;font-size:36px;color:var(--kente-gold);letter-spacing:-1.5px;">Row</span>
+          <span style="width:8px;height:8px;background:var(--terracotta);border-radius:50%;flex-shrink:0;margin-bottom:6px;"></span>
+        </div>
+        <span style="font-family:var(--font-mono);font-size:9px;letter-spacing:0.4em;text-transform:uppercase;color:var(--ash);margin-top:4px;">Africa</span>
+      </div>
+    </div>
+    <div class="bc-by">
+      Brand Identity System<br>
+      <strong>Creative Spills Studio</strong>
+    </div>
+  </div>
+
+  <div class="bc-bottom">
+    <div class="bc-rule">Your seat<br>is waiting.</div>
+    <div class="divider-gold"></div>
+    <div class="bc-meta-row">
+      <div class="bc-meta-item">
+        <div class="bc-meta-label">Version</div>
+        <div class="bc-meta-value">1.0.0</div>
+      </div>
+      <div class="bc-meta-item">
+        <div class="bc-meta-label">Year</div>
+        <div class="bc-meta-value">2025</div>
+      </div>
+      <div class="bc-meta-item">
+        <div class="bc-meta-label">Created By</div>
+        <div class="bc-meta-value">Creative Spills</div>
+      </div>
+      <div class="bc-meta-item">
+        <div class="bc-meta-label">Platform</div>
+        <div class="bc-meta-value">frontrow.africa</div>
+      </div>
+      <div class="bc-meta-item">
+        <div class="bc-meta-label">Contact</div>
+        <div class="bc-meta-value">studio@creativespills.co</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
